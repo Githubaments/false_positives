@@ -88,3 +88,5 @@ def false_positives():
     st.plotly_chart(fig2)
 
     return
+
+false_positives()
