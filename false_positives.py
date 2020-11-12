@@ -7,7 +7,6 @@ def false_positives():
     pop_rate = st.sidebar.slider('Population with disease', min_value=1, value=40, max_value=100, format="%i %%")
     true_rate = st.sidebar.slider('True Positive Rate', min_value=1, value=100, max_value=100, format="%i %%")
     false_rate = st.sidebar.slider('False Positive Rate', min_value=0, value=5, max_value=100, format="%i %%")
-    priors = st.sidebar.slider('Priors', min_value=0, value=5, max_value=100, format="%i %%")
 
     a = true_rate * pop_rate
     b = false_rate * (100 - pop_rate)
@@ -23,7 +22,7 @@ def false_positives():
     TN = (100 - pop_rate) * (100 - false_rate) / 100
 
     st.write(
-        "Given a test that is %i%% accurate, in a population wide test, a positive result implies an actual %.0f%% chance of having the disease. "
+        "Given a test that is %i%% accurate, in a population wide test a positive result implies an actual %.0f%% chance of having the disease. "
         "A second positive test implies a %.2f%% chance of having the disease."
         % (true_rate, false_pos * 100, false_pos2 * 100))
 
@@ -53,6 +52,8 @@ def false_positives():
     df_chart2['Probability that 2nd postive test = have disease'] = (true_rate * true_rate * df_chart2[
         'Pop with Disease'] / (true_rate * true_rate * df_chart2['Pop with Disease'] + false_rate * false_rate * (
                 100 - df_chart2['Pop with Disease']))) * 100
+    
+    st.subheader("Variable Comparision")
 
     fig3 = px.line(df_chart2, title="Population with Disease", labels={'value': ' ', 'index': ''})
     fig3.update_xaxes(showspikes=True)
