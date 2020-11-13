@@ -20,6 +20,12 @@ def false_positives():
     FP = ((100 - pop_rate) / 100) * false_rate
     FN = ((pop_rate) * (100 - true_rate)) / 100
     TN = (100 - pop_rate) * (100 - false_rate) / 100
+    
+    
+    my_expander = st.beta_expander()
+    my_expander.write('Sensitivity vs specificity')
+    clicked = my_expander.button('Click me!')
+
 
     st.write(
         "Given a test that is %i%% accurate, in a population wide test a positive result implies an actual %.0f%% chance of having the disease. "
