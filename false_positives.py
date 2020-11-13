@@ -23,7 +23,7 @@ def false_positives():
     
    
     
-    my_expander = st.beta_expander()
+    my_expander = st.beta_expander(' ')
     with my_expander:
         'Sensitivity vs specificity'
         clicked = st.button('Click me!')
