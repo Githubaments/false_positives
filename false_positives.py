@@ -73,7 +73,7 @@ def false_positives():
 
     st.subheader("Sensitivity ")
     st.write("Probability of being test positive when disease present.")
-    st.write("Sensitivity = TP(TP + FN)")
+    st.write("Sensitivity = TP / (TP + FN)")
     st.write("TP = number of True Positive, FN = number of False Negatives")
 
     st.subheader("Specificity ")
@@ -89,7 +89,7 @@ def false_positives():
 
     st.write("In this example we will include a second test. An accurate second postive test increases the probabilty of a true positive.")
     st.write("An accurate second positive test can dramtically increase the probabilty that we're dealing with a false positive.")
-    st.write("The conditional probabilty of two false negative is quite lower for an accurate test.")
+    st.write("The conditional probabilty of two false positives is quite low for an accurate test.")
 
     ex3_pop_rate = st.slider('Population with disease', min_value=1, value=10, max_value=100, format="%i %%",key=6)
     ex3_true_rate = st.slider('True Positive Rate', min_value=1, value=95, max_value=100, format="%i %%",key =7)
@@ -232,6 +232,10 @@ def cals(pop_rate,true_rate,false_rate,second_test,key):
     data = df.iloc[0:2, 0:2]
     fig = px.bar(data, labels={'value': 'Percentage of Pop', 'index': ''})
     st.plotly_chart(fig,use_container_width=True)
+
+    if second_test == True
+        
+
 
     return TP,FP,FN,TN,false_pos,false_pos2
 
