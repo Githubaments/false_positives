@@ -234,10 +234,11 @@ def cals(pop_rate,true_rate,false_rate,second_test,key):
     st.plotly_chart(fig,use_container_width=True)
 
     if second_test == True
+        pass
         
 
 
-    return TP,FP,FN,TN,false_pos,false_pos2
+    return 
 
 
 
