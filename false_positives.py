@@ -88,7 +88,7 @@ def false_positives():
     st.header("Second Test Example")
 
     st.write("In this example we will include a second test. An accurate second postive test increases the probabilty of a true positive.")
-    st.write("An accurate second positive test can dramtically increase the probabilty that we're dealing with a false positive.")
+    st.write("An accurate second positive test can dramatically increase the probabilty that we're dealing with a false positive.")
     st.write("The conditional probabilty of two false positives is quite low for an accurate test.")
 
     ex3_pop_rate = st.slider('Population with disease', min_value=1, value=10, max_value=100, format="%i %%",key=6)
@@ -155,7 +155,7 @@ def false_positives():
     fig_pop = px.line(df_chart2, title="Population with Disease", labels={'value': ' ', 'index': ''})
     fig_pop.update_xaxes(showspikes=True)
     fig_pop.update_yaxes(showspikes=True)
-    st.plotly_chart(fig_pop,use_container_width=True)
+    st.plotly_chart(fig_pop,use_container_width=False)
 
 
 
