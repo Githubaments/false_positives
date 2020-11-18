@@ -171,7 +171,7 @@ def false_positives():
     fig_tp = px.line(df_chart3, title="True Positive Rate", labels={'value': ' ', 'index': ''})
     fig_tp.update_xaxes(showspikes=True)
     fig_tp.update_yaxes(showspikes=True)
-    st.plotly_chart(fig_tp,use_container_width=True)
+    st.plotly_chart(fig_tp,use_container_width=False)
 
     df_chart = pd.DataFrame(index=(np.arange(1, 101)))
     df_chart['False Positive Rate'] = np.arange(1, 101)
@@ -185,7 +185,7 @@ def false_positives():
 
     fig_fp.update_xaxes(showspikes=True)
     fig_fp.update_yaxes(showspikes=True)
-    st.plotly_chart(fig_fp,use_container_width=True )
+    st.plotly_chart(fig_fp,use_container_width=False)
 
     st.dataframe(df.round(0))
     st.plotly_chart(fig,use_container_width=True )
