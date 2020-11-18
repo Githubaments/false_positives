@@ -233,7 +233,7 @@ def cals(pop_rate,true_rate,false_rate,second_test,key):
     fig = px.bar(data, labels={'value': 'Percentage of Pop', 'index': ''})
     st.plotly_chart(fig,use_container_width=True)
 
-    if second_test == True
+    if second_test == True:
         pass
         
 
