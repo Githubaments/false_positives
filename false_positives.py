@@ -155,7 +155,7 @@ def false_positives():
     fig_pop = px.line(df_chart2, title="Population with Disease", labels={'value': ' ', 'index': ''})
     fig_pop.update_xaxes(showspikes=True)
     fig_pop.update_yaxes(showspikes=True)
-    st.plotly_chart(fig_pop)
+    st.plotly_chart(fig_pop,use_container_width=True)
 
 
 
@@ -171,7 +171,7 @@ def false_positives():
     fig_tp = px.line(df_chart3, title="True Positive Rate", labels={'value': ' ', 'index': ''})
     fig_tp.update_xaxes(showspikes=True)
     fig_tp.update_yaxes(showspikes=True)
-    st.plotly_chart(fig_tp)
+    st.plotly_chart(fig_tp,use_container_width=True)
 
     df_chart = pd.DataFrame(index=(np.arange(1, 101)))
     df_chart['False Positive Rate'] = np.arange(1, 101)
@@ -185,10 +185,10 @@ def false_positives():
 
     fig_fp.update_xaxes(showspikes=True)
     fig_fp.update_yaxes(showspikes=True)
-    st.plotly_chart(fig_fp)
+    st.plotly_chart(fig_fp,use_container_width=True )
 
     st.dataframe(df.round(0))
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,use_container_width=True )
 
 
     return
@@ -231,7 +231,7 @@ def cals(pop_rate,true_rate,false_rate,second_test,key):
     # if(st.button('Chart')):
     data = df.iloc[0:2, 0:2]
     fig = px.bar(data, labels={'value': 'Percentage of Pop', 'index': ''})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,use_container_width=True)
 
     return TP,FP,FN,TN,false_pos,false_pos2
 
