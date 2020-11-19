@@ -211,12 +211,12 @@ def cals(pop_rate,true_rate,false_rate,second_test,key):
 
     if second_test == True:
         st.write(
-            "Given a test that is %i%% accurate, in a population wide test, a positive result implies an actual %.0f%% chance of having the disease. "
+            "Given a test that is %i%% accurate, in a population wide test, a positive result implies an actual %.1f%% chance of having the disease. "
             "A second positive test implies a %.2f%% chance of having the disease."
             % (true_rate, false_pos * 100, false_pos2 * 100))
     else:
         st.write(
-            "Given a test that is %i%% accurate, in a population wide test with a %i%% infection rate, a positive result implies an actual %.0f%% chance of having the disease. "
+            "Given a test that is %i%% accurate, in a population wide test with a %i%% infection rate, a positive result implies an actual %.1f%% chance of having the disease. "
             % (true_rate,pop_rate, false_pos * 100))
 
 
