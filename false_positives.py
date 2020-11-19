@@ -8,17 +8,17 @@ def false_positives():
     st.header("False Positives")
 
 
-    st.write("False positives in medical tests are in the news again. False positives in medical tests are not well understood, even by industry professionals. The maths behind it is very simple, it’s just not immediately intuitive. It involves nothing more complex than multiplying and adding numbers. ")
-    st.write("With a couple of examples you'll likely be ahead of most medical professionals.")
+    st.write("False positives are in the news again. False positives in medical tests are not well understood, even by industry professionals. The maths behind it is very simple, it’s just not immediately intuitive. It involves nothing more complex than multiplying and adding numbers. ")
+    st.write("With a couple of examples you'll likely be ahead of many doctors.")
 
 
 
-    st.write("Imagine a scenario, a patient has just tested positive for a rare disease. One in a hundred people have the disease. The test is 95% accurate -it catches the disease 95% of the time. The test occasionally gets false positives. Someone who doesn’t have the disease will test positive 5% of the time . How worried should we be for our patient who just tested postive? Take a second to come up with a number. ")
+    st.write("Imagine a scenario; a patient has just tested positive for a rare disease. One in a hundred people have the disease. The test is 95% accurate - it catches the disease 95% of the time. The test occasionally gets false positives. Someone who doesn’t have the disease will test positive 5% of the time. How worried should we be for our patient? How likely is it that they actually have the disease? Take a second to come up with a approximate number. ")
     st.write("The answer is we’re not very worried. Our patient is far more likely to be a false positive than a true positive. How does this happen? The answer is mainly because the disease is so rare. 99% of the population don’t have the disease. Finding a false positives in the 99% of the population that don't have the disease is more likely than finding the 1% of people who have the disease.")
     st.write("We’ll be using interactive visualisations to explain this. So don’t worry too much about the maths just yet. ")
     st.write("TP stands for True Positive. The test correctly determines the person has the disease.")
     st.write("FP stands for False Postive. It’s an erroneous positive.")
-    st.write("The test incorrectly marks someone as having the disease. So in our example about 1 person in 100 will be marked for having the disease. And about 5 people will be falsely marked as having the disease. So out of the 6 people marked as positive, only 1 of the six have the dease. 1 / 6 is 16%. A single positive test implies a 16% chance of actually having the disease. Even though our test is 95% accurate. It’s not a number that we would immediately expect. ")
+    st.write("The test incorrectly marks someone as having the disease. So in our example about 1 person in 100 will be marked as a True Positive. And about 5 people will be False Positives. So out of the 6 people marked as positive, only 1 of the six have the disease. 1 / 6 is 16%. A single positive test implies a 16% chance of actually having the disease. Even though our test is 95% accurate. It’s not a number that we would immediately expect. ")
 
 
     example_expander = st.beta_expander('Here’s the full maths:')
@@ -41,11 +41,11 @@ def false_positives():
     st.header("Second Example")
     st.write("This was a question given to 160 gynaecologists")
     st.write("A test for breast cancer is 90% accurate in identifying patients who actually have breast cancer, and has a 9% false positive rate for patients without breast cancer.")
-    st.write("The incidence of breast cancer in the population is 1%. What is the probability that a person who tests positive for breast cancer actually has the disease")
+    st.write("The incidence of breast cancer in the population is 1%. What is the probability that a person who tests positive for breast cancer actually has the disease?")
     st.write("Again, take a second to come up with an approximate number.")
     st.write("You'll likely do better than the medical professions who were given this question.")
-    st.write("It may be easier to think in terms of frequencies. Of a group of 100 women, 1 will have the disease. The test has a 90% chance of finding this.")
-    st.write("For each of the 99 women in the group that don't have the disease there is a 9% chance that they'll have a false positive.")
+    st.write("It may be easier to think in terms of frequencies. In a group of 100 women, 1 will have the disease. The test has a 90% chance of finding this.")
+    st.write("For each of the 99 women in the group that don't have the disease there is a 9% chance that they'll get a false positive.")
     st.write("The professionals were given four options. How many women who test positive actually have breast cancer? What is the best approximation?")
     st.write("a) 9 in 10")
     st.write("b) 8 in 10")
@@ -87,7 +87,7 @@ def false_positives():
 
     st.header("Second Test Example")
 
-    st.write("In this example we will include a second test. An accurate second postive test increases the probabilty of a true positive.")
+    st.write("In this example we will include a second test. An accurate second postive test increases the probabilty of the result being a true positive.")
     st.write("An accurate second positive test can dramatically increase the probabilty that we're dealing with a false positive.")
     st.write("The conditional probabilty of two false positives is quite low for an accurate test.")
 
