@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import numpy as np
-import os
 
 
 st.set_page_config(page_title='False Positives', page_icon="https://raw.githubusercontent.com/Githubaments/Images/main/favicon.ico")
