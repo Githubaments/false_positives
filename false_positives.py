@@ -10,7 +10,7 @@ def false_positives():
     st.header("False Positives")
 
 
-    st.write("False positives are in the news again. False positives in medical tests are not well understood, even by industry professionals. The maths behind it is very simple, it’s just not immediately intuitive. It involves nothing more complex than multiplying and adding numbers. ")
+    st.write("False positives are in the news again. False positives in medical tests are not well understood, even by industry professionals. The maths behind it is very simple, it’s just not immediately intuitive. It involves nothing more complex than addition and multiplication. ")
     st.write("With a couple of examples you'll likely be ahead of many doctors.")
 
 
