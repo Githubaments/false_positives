@@ -21,7 +21,7 @@ def false_positives():
     st.write("We’ll be using interactive visualisations to explain this. So don’t worry too much about the maths just yet. ")
     st.write("TP stands for True Positive. The test correctly determines the person has the disease.")
     st.write("FP stands for False Postive. It’s an erroneous positive.")
-    st.write("The test incorrectly marks someone as having the disease. So in our example about 1 person in 100 will be marked as a True Positive. And about 5 people will be False Positives. So out of the 6 people marked as positive, only 1 of the six have the disease. 1 / 6 is 16%. A single positive test implies a 16% chance of actually having the disease. Even though our test is 95% accurate. It’s not a number that we would immediately expect. ")
+    st.write("The test incorrectly marks someone as having the disease. So in our example about 1 person in 100 will be marked as a True Positive. And about 5 people will be False Positives. So out of the 6 people marked as positive, only 1 of the 6 have the disease. 1 / 6 is 16%. A single positive test implies a 16% chance of actually having the disease. Even though our test is 95% accurate. It’s not a number that we would immediately expect. ")
 
 
     example_expander = st.beta_expander('Here’s the full maths:')
