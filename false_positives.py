@@ -16,7 +16,7 @@ def false_positives():
 
 
 
-    st.write("Imagine a scenario; a patient has just tested positive for a rare disease. One in a hundred people have the disease. The test is 95% accurate - it catches the disease 95% of the time. The test occasionally gets false positives. Someone who doesn’t have the disease will test positive 5% of the time. How worried should we be for our patient? How likely is it that they actually have the disease? Take a second to come up with a approximate number. ")
+    st.write("Imagine a scenario; during a population wide screening a patient has just tested positive for a rare disease. One in a hundred people have the disease. The test is 95% accurate - it catches the disease 95% of the time. The test occasionally gets false positives. Someone who doesn’t have the disease will test positive 5% of the time. How worried should we be for our patient? How likely is it that they actually have the disease? Take a second to come up with a approximate number. ")
     st.write("The answer is we’re not very worried. Our patient is far more likely to be a false positive than a true positive. How does this happen? The answer is mainly because the disease is so rare. 99% of the population don’t have the disease. Finding a false positives in the 99% of the population that don't have the disease is more likely than finding the 1% of people who have the disease.")
     st.write("We’ll be using interactive visualisations to explain this. So don’t worry too much about the maths just yet. ")
     st.write("TP stands for True Positive. The test correctly determines the person has the disease.")
