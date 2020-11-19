@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 
-st.beta_set_page_config(page_title='False Positives')
+st.set_page_config(page_title='False Positives')
 
 def false_positives():
 
