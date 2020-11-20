@@ -66,7 +66,7 @@ def false_positives():
 
     dict_estimates = {'Lancet Min': 0.8,
                       'Lancet’s Max':4.0,
-                      'Irish Estimated Figures': 0.4
+                      'Irish Estimated Figures': 0.2
                       }
 
     study = st.selectbox("Estimate:", ['Lancet Min','Lancet’s Max','Irish Estimated Figures'], key=None)
