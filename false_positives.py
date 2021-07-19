@@ -260,7 +260,7 @@ def false_positives():
 
     st.header("Vaccination Example")
     st.write(
-        "I've seen several  [tweets](https://twitter.com/kennyshirley/status/1417177778013843456) today about the maths behind why so many vaccinated people are being hositpalised")
+        "I've seen several  [tweets](https://twitter.com/kennyshirley/status/1417177778013843456) today about the maths behind why are large proportion of people being hositpalised are vaccinated.")
 
     st.write(
         "This is a quick interactive example.")
@@ -269,7 +269,7 @@ def false_positives():
 
     vacc_pop_rate = st.slider('Percentage of Population vaccinated', min_value=0.01, value=95.00, max_value=100.00, format="%f %%", key=0)
     efficacy = st.slider('Estimated efficacy %', min_value=0.01, value=90.00, max_value=100.00, format="%f %%",  key= 1)
-    hospitalization_rate = st.slider('Hypotehtical non-vaccinated hospitalization rate %', min_value=0.00, value=10.00, max_value=100.00, format="%f %%",  key=2)
+    hospitalization_rate = st.slider('Hypotehtical unvaccinated hospitalization rate %', min_value=0.00, value=10.00, max_value=100.00, format="%f %%",  key=2)
 
     vacc_pop_rate = vacc_pop_rate / 100
     efficacy = 1 - (efficacy / 100)
@@ -283,7 +283,7 @@ def false_positives():
 
 
     d = {'Vaccinated': [vacc_hositpalised, vacc_non_hospital, vacc_hositpalised + vacc_non_hospital],
-         'Non-Vaccinated': [no_vacc_hositpalised, no_vacc_non_hospital, no_vacc_hositpalised + no_vacc_non_hospital],
+         'Unvaccinated': [no_vacc_hositpalised, no_vacc_non_hospital, no_vacc_hositpalised + no_vacc_non_hospital],
          'Total': [vacc_hositpalised + no_vacc_hositpalised, vacc_non_hospital + no_vacc_non_hospital,
                    no_vacc_hositpalised + no_vacc_non_hospital + vacc_hositpalised + vacc_non_hospital]}
     df = pd.DataFrame(data=d, index=['Hospitalised', 'Not Hospitalised', 'Total'])
