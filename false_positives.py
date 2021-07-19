@@ -10,6 +10,8 @@ def false_positives():
 
     st.header("False Positives")
 
+    st.write("UPDATE: I originally created this page in November last year. Today (July 19th) I've added an example of vaccination numbers at the end")
+
     st.write("False positives are in the news again. False positives in medical tests are not well understood, even by industry professionals. The maths behind it is very simple, it’s just not immediately intuitive. It involves nothing more complex than addition and multiplication. ")
     st.write("With a couple of examples you'll likely be ahead of most doctors. We’ll start with a simple general example before taking a look at two topical examples; Covid testing and mammogram screening.")
 
@@ -163,7 +165,7 @@ def false_positives():
 
 
 
-    st.header("Final Example")
+    st.header("Futher Example")
 
 
     pop_rate = st.slider('Population with disease', min_value=1, value=40, max_value=100, format="%i %%")
@@ -255,7 +257,35 @@ def false_positives():
     st.dataframe(df.round(0))
     st.plotly_chart(fig)
 
+    st.header("Vaccination Example")
+    st.write(
+        "I've seen several tweets today about the maths behind why so many vaccinated people are being hositpalised")
+    st.write(
+        "This is a quick interactive example.")
 
+    vacc_pop_rate = st.slider('Percentage of Population vaccinated', min_value=0.01, value=95.00, max_value=100.00, format="%f %%", key=0)
+    efficacy = st.slider('Estimated efficacy %', min_value=0.01, value=90.00, max_value=100.00, format="%f %%",  key= 1)
+    hospitalization_rate = st.slider('Hypotehtical non-vaccinated hospitalization rate %', min_value=0.00, value=10.00, max_value=100.00, format="%f %%",  key=2)
+    non_vacc = 1000.00 * (100 - vacc_pop_rate)
+    
+    no_vacc_hositpalised = non_vacc * hospitalization_rate
+    no_vacc_non_hospital = non_vacc - hositpalised
+    vacc_hositpalised = 1000.00 * (vacc_pop_rate / 100) * (hospitalization_rate/ 100) * (efficacy/ 100)
+    vacc_non_hospital = (1000.00 * (vacc_pop_rate / 100)) - vacc_hositpalised
+    print( no_vacc_hositpalised + no_vacc_non_hospital + vacc_hositpalised + vacc_non_hospital)
+    
+    d = {'Vaccinated': [vacc_hositpalised, vacc_non_hospital, vacc_hositpalised + vacc_non_hospital], 
+         'Non-Vaccinated': [no_vacc_hositpalised, no_vacc_non_hospital, no_vacc_hositpalised + no_vacc_non_hospital], 
+         'Total': [vacc_hositpalised + no_vacc_hositpalised, vacc_non_hospital + no_vacc_non_hospital, 
+                   no_vacc_hositpalised + no_vacc_non_hospital + vacc_hositpalised + vacc_non_hospital]}
+    df = pd.DataFrame(data=d, index=['Test Positive', 'Test Negative', 'Total'])
+
+
+
+    data = df.iloc[0:2, 0:2]
+    fig = px.bar(data, labels={'value': 'Percentage of Pop', 'index': ''})
+    st.plotly_chart(fig)
+    
     return
 
 def cals(pop_rate,true_rate,false_rate,second_test,key,example):
