@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import numpy as np
+from decimal import Decimal
 
 st.set_page_config(page_title='False Positives', page_icon="https://raw.githubusercontent.com/Githubaments/Images/main/favicon.ico")
 
@@ -259,33 +260,43 @@ def false_positives():
 
     st.header("Vaccination Example")
     st.write(
-        "I've seen several tweets today about the maths behind why so many vaccinated people are being hositpalised")
+        "I've seen several  [tweets](https://twitter.com/kennyshirley/status/1417177778013843456) today about the maths behind why so many vaccinated people are being hositpalised")
+
     st.write(
         "This is a quick interactive example.")
+
+
 
     vacc_pop_rate = st.slider('Percentage of Population vaccinated', min_value=0.01, value=95.00, max_value=100.00, format="%f %%", key=0)
     efficacy = st.slider('Estimated efficacy %', min_value=0.01, value=90.00, max_value=100.00, format="%f %%",  key= 1)
     hospitalization_rate = st.slider('Hypotehtical non-vaccinated hospitalization rate %', min_value=0.00, value=10.00, max_value=100.00, format="%f %%",  key=2)
-    non_vacc = 1000.00 * (100 - vacc_pop_rate)
-    
-    no_vacc_hositpalised = non_vacc * hospitalization_rate
+
+    vacc_pop_rate = vacc_pop_rate / 100
+    efficacy = 1 - (efficacy / 100)
+    hospitalization_rate = hospitalization_rate/ 100
+    non_vacc = 1000.00 * (1 - vacc_pop_rate)
+
+    no_vacc_hositpalised = non_vacc * (hospitalization_rate)
     no_vacc_non_hospital = non_vacc - no_vacc_hositpalised
-    vacc_hositpalised = 1000.00 * (vacc_pop_rate / 100) * (hospitalization_rate/ 100) * (efficacy/ 100)
-    vacc_non_hospital = (1000.00 * (vacc_pop_rate / 100)) - vacc_hositpalised
-    print( no_vacc_hositpalised + no_vacc_non_hospital + vacc_hositpalised + vacc_non_hospital)
-    
-    d = {'Vaccinated': [vacc_hositpalised, vacc_non_hospital, vacc_hositpalised + vacc_non_hospital], 
-         'Non-Vaccinated': [no_vacc_hositpalised, no_vacc_non_hospital, no_vacc_hositpalised + no_vacc_non_hospital], 
-         'Total': [vacc_hositpalised + no_vacc_hositpalised, vacc_non_hospital + no_vacc_non_hospital, 
+    vacc_hositpalised = (1000.00 * (vacc_pop_rate) * ((hospitalization_rate))) * efficacy
+    vacc_non_hospital = (1000.00 * (vacc_pop_rate) - vacc_hositpalised)
+
+
+    d = {'Vaccinated': [vacc_hositpalised, vacc_non_hospital, vacc_hositpalised + vacc_non_hospital],
+         'Non-Vaccinated': [no_vacc_hositpalised, no_vacc_non_hospital, no_vacc_hositpalised + no_vacc_non_hospital],
+         'Total': [vacc_hositpalised + no_vacc_hositpalised, vacc_non_hospital + no_vacc_non_hospital,
                    no_vacc_hositpalised + no_vacc_non_hospital + vacc_hositpalised + vacc_non_hospital]}
-    df = pd.DataFrame(data=d, index=['Test Positive', 'Test Negative', 'Total'])
+    df = pd.DataFrame(data=d, index=['Hospitalised', 'Not Hospitalised', 'Total'])
 
-
+    #pd.options.display.float_format = '${:,.2f}'.format
+    st.write(df.style.format("{:.4}"))
 
     data = df.iloc[0:2, 0:2]
-    fig = px.bar(data, labels={'value': 'Percentage of Pop', 'index': ''})
+    fig = px.bar(data, labels={'value': 'Number of People', 'index': ''})
     st.plotly_chart(fig)
-    
+
+    df = pd.DataFrame(data=d, index=['Hospitalised', 'Not Hospitalised', 'Total'])
+
     return
 
 def cals(pop_rate,true_rate,false_rate,second_test,key,example):
