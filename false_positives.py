@@ -269,7 +269,7 @@ def false_positives():
     non_vacc = 1000.00 * (100 - vacc_pop_rate)
     
     no_vacc_hositpalised = non_vacc * hospitalization_rate
-    no_vacc_non_hospital = non_vacc - hositpalised
+    no_vacc_non_hospital = non_vacc - no_vacc_hositpalised
     vacc_hositpalised = 1000.00 * (vacc_pop_rate / 100) * (hospitalization_rate/ 100) * (efficacy/ 100)
     vacc_non_hospital = (1000.00 * (vacc_pop_rate / 100)) - vacc_hositpalised
     print( no_vacc_hositpalised + no_vacc_non_hospital + vacc_hositpalised + vacc_non_hospital)
